@@ -1,18 +1,4 @@
-/*DESAFÍO N°3/ CONSIGNA:
-Basado en el desafío N°2" Manejo de archivos".
-Objetivo: Generar un servidor con express.
-Con 2 Rutas:
-/products →  lee ese archivo y devuelveun array de productos.Va a recibir un Query llamado limit. METODO FILTER.
-/products/:id → recibir por parametro el id y devolver el producto solicitado. METODO FIND Y getProductById
-TRABAJAMOS CON PROMESAS: ARCHIVOS ASINCRONICOS
-EL DESAFIO ES SOLO PARA GETS ASI QUE SE DEBES TENER UN ARCHIVO CON PRODUCTOS.
-*/
-
-
-
 //VOY A USAR PROMESAS DE FS
-
-
 //genero 1 clase con 1 constructor que me pide path como paramentro para poderlo almacenar
 
 import { promises as fs } from 'fs'
@@ -35,11 +21,11 @@ export class ProductManager {
         const HASERROR = await (async () => {
             for (const field of REQUIREDFIELDS) {
                 if (!(field in newProduct) || newProduct[field] === undefined || newProduct[field] === '') {
-                    console.log("Error: El campo '" + field + "' es obligatorio.");
-                    return true;
+                    return "Error: El campo '" + field + "' es obligatorio.";
+                   
                 }
             }
-            return false;
+            return null;
         })();
 
         if (HASERROR) {
@@ -49,16 +35,15 @@ export class ProductManager {
         //buscame 1 prod cuyo code sea igual al code del nuevo producto
         const INDICE = PRODS.findIndex(prod => prod.code === newProduct.code)
         //si el indice es distinto de -1(-1 significa que el elemento no existe)OJO CON PONER  !=-1
-        console.log(INDICE)
-        if (INDICE === -1) {
+              if (INDICE === -1) {
             //si no existe lo agrego al array
             PRODS.push(newProduct)
             //vuelvo a escribir este archivo.De lo que seria este nuevo array con este nuevo producto (DE ESTA LOCACION, ENVIAME ESTE ARRAY)
             await fs.writeFile(this.path, JSON.stringify(PRODS))
             //Y RETORNAME LO QUE SERIA EL MENSAJE
-            console.log("Creado con éxito")
+            return "Creado con éxito"
         } else {
-            console.log("Producto existente")
+            return "Producto existente"
         }
     }
 
@@ -67,7 +52,7 @@ export class ProductManager {
     async getProducts() {
         const PRODS = JSON.parse(await fs.readFile(this.path, 'utf-8'))
         //misma linea de codigo q al inicio
-        console.log(PRODS)
+       return PRODS
     }
 
 
@@ -79,9 +64,9 @@ export class ProductManager {
         const PROD = PRODS.find(e => e.id === id)
 
         if (PROD) {
-            console.log(PROD)
+            return PROD
         } else {
-            console.log("El producto no existe")
+            return "El producto no existe"
         }
     }
 
@@ -108,9 +93,9 @@ export class ProductManager {
             if (actualizacionExitosa) {
                 // Guardar el array actualizado en el archivo
                 await fs.writeFile(this.path, JSON.stringify(productosActualizados, null, 2));
-                console.log('Actualización satisfactoria');
+               return 'Actualización satisfactoria';
             } else {
-                console.log('Producto inexistente o no hubo cambios');
+                return 'Producto inexistente o no hubo cambios';
             }
         } catch (error) {
             console.error('Error al actualizar el producto:', error);
@@ -131,9 +116,9 @@ export class ProductManager {
             const PRODSFILTRADOS = PRODS.filter(e => e.id != id)
             //una vez que tengo este array editado, lo voy a pisar con el writeFile
             await fs.writeFile(this.path, JSON.stringify(PRODSFILTRADOS))
-            console.log('Producto Eliminado')
+            return'Producto Eliminado'
         } else {
-            console.log('Producto no encontrado')
+            return 'Producto no encontrado'
         }
     }
 }
