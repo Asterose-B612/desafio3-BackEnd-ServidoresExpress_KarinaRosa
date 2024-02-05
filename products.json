@@ -1,2 +1,43 @@
-[  ]
+[
+    {
+      "title": "Dell XPS 13 Plus",
+      "description": "Notebook Intel Core i7-1260P, 16GB RAM, 512 GB SSD, SD card, Fingerprint W11",
+      "price": 1558000,
+      "image": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9320/media-gallery/xs9320nt-xnb-shot-5-1-sl.psd?fmt=pjpg&pscan=auto&scl=1&wid=3782&hei=2988&qlt=100,1&resMode=sharp2&size=3782,2988&chrss=full&imwidth=5000",
+      "code": "DELLXPS139320",
+      "stock": 25
+    },
+    {
+      "title": "Apple iPhone 14 Pro Max",
+      "description": "",
+      "price": 680999,
+      "image": "https://www.yourmacstore.nl/media/catalog/product/cache/19a47ab23187a681c0d6786a313b33f5/7/3/7376101810974_1991754528.jpg",
+      "code": "A2650",
+      "stock": 8
+    },
+    {
+      "title": "Apple MacBook Pro 13",
+      "description": "Notebook macOS 8GB RAM, 256 GB SSD, color espacial",
+      "price": 2000000,
+      "image": "https://th.bing.com/th/id/R.dd8770ef96efbf3725cc82d3c00161bf?rik=ejg3K7qbx2D%2bmA&pid=ImgRaw&r=0",
+      "code": "A2338",
+      "stock": 15
+    },
+    {
+      "title": "Huawei MatePad Pro 11",
+      "description": "Tablet Kirin 9000 7nm, 512 SSD",
+      "price": 570000,
+      "image": "https://d500.epimg.net/cincodias/imagenes/2023/11/29/tablets/1701260925_565844_1701261040_sumario_normal.jpg",
+      "code": "H34337",
+      "stock": 11
+    },
+    {
+      "title": "Apple iPad Pro 11",
+      "description": "Tablet 4th generation 2022 128gb color plata y 8gb RAM",
+      "price": 1499000,
+      "image": "https://th.bing.com/th/id/R.b0f1de5b30bd996f259b8a9c2b8d5ef1?rik=2DbnJzce%2fRfl7w&pid=ImgRaw&r=0",
+      "code": "A2759",
+      "stock": 23
+    }
+  ]
   
