@@ -1,0 +1,17 @@
+{
+  "name": "desafio3",
+  "version": "1.0.0",
+  "description": "crear un servidor con express",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "devNodemon":"nodemon src/app.js",
+    "devNode": "node --watch src/app.js"
+  },
+  "keywords": [],
+  "author": "Karina Rosa",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
