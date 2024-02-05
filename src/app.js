@@ -24,7 +24,7 @@ const app = express()
 //variable para cambios de puertos
 const PORT = 8000
 // Crea una instancia de ProdutManager
-const productManager = new ProductManager('../products.json');
+const productManager = new ProductManager('./products.json');
 
 
 
