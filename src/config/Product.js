@@ -8,7 +8,7 @@ export class Product {
         this.title = title
         this.description = description
         this.price = price
-        this.thumbnail = thumbnail
+        this.thumbnail = []
         this.code = code
         this.stock = stock
         this.id = crypto.randomBytes(10).toString('hex')

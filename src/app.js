@@ -24,7 +24,7 @@ const app = express()
 //variable para cambios de puertos
 const PORT = 8000
 // Crea una instancia de ProdutManager
-const productManager = new ProductManager('/products.json');
+const productManager = new ProductManager('../products.json');
 
 
 
@@ -49,6 +49,7 @@ app.get('/products', async (req, res) => {
     const PRODS = await productManager.getProducts()
 
     const LIMITE = parseInt(limit)
+    if(limit ===undefined) return res.send (PRODS)
 
     if (LIMITE) {
 
@@ -70,14 +71,13 @@ app.get('/products', async (req, res) => {
 
 
 //consulta en ruta productos. pid no es valor fijo.pid creado x crypto
-app.get(`/products/:pid`, async (req, res) => {
+app.get('/products/:pid', async (req, res) => {
     //consulto por parametro la solicitud
     const PRODUCTID = req.params.pid
     //consulto por id de producto
     /*todo dato q se consulta desde un parametro es un string. Si tenemos un id tipo numerico hay que parsearlo*/
     const PROD = await productManager.getProductById(PRODUCTID)
     //llamo a ProductManager para devolver prod c/id solicitado
-
 
         res.send(PROD);
 
